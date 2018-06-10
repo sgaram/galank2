@@ -142,7 +142,7 @@ def mentionMembers(to, mid):
                     no = "╭═══╬╬═══╮[ {} ]╰═══╬╬═══╯".format(str(Galank.getGroup(to).name))
                 except:
                     no = "╭═══╬╬═══╮[ Success ]╰═══╬╬═══╯"
-        prank.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+        Galank.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
         logError(error)
         Galank.sendMessage(to, "[ INFO ] Error :\n" + str(error))
@@ -769,162 +769,162 @@ def bot(op):
                                     Galank.sendText(to,"BLOCKED MEMBER HAS BEN NON ACTIVE")
                                     print("[Perintah]Allow kick")
                         elif text.lower() == 'settings':
-                                 md = "╔▬▬℘ґ∂ηк в❍тs▬▬╗\n║▬▬▬℘▬▬в▬▬▬║\n"
-                                 if msg.to in settings["cancelprotect"]: md+="║☆║PROIVITE:ON➡️📱\n"
-                                 else: md+="║☆║PROINVITE:OFF➡️📴\n"
-                                 if msg.to in settings["PROTECT"]: md+="║☆║PROTECT:ON➡️📱\n"
-                                 else: md+="║☆║PROTECT:OFF➡️📴\n"
-                                 if msg.to in settings["linkprotect"]: md+="║☆║PROLINK:ON➡️📱\n"
-                                 else: md+="║☆║PROLINK:OFF➡️📴\n"
-                                 if msg.to in settings["pname"]: md+="║☆║NAMELOCK:ON➡️📱\n"
-                                 else: md+="║☆║NAMELOCK:OFF➡️📴\n"
-                                 prank.sendText(to,md + "║▬▬▬℘▬▬в▬▬▬║\n╚▬▬℘ґ∂ηк в❍тs▬▬╝")
+                                 md = "╭══════╬╬═══════╮\nSΣTTIΠGS PRΩTΣCTIΩΠ\n╰══════╬╬═══════╯\n╭══════╬╬═══════╮\n"
+                                 if msg.to in settings["cancelprotect"]: md+="╠➣PROIVITE ON✔\n"
+                                 else: md+="╠➣PROINVITE:OFF✖\n"
+                                 if msg.to in settings["PROTECT"]: md+="╠➣PROTECT ON✔\n"
+                                 else: md+="╠➣PROTECT:OFF✖\n"
+                                 if msg.to in settings["linkprotect"]: md+="╠➣PROLINK ON✔\n"
+                                 else: md+="╠➣PROLINK:OFF✖\n"
+                                 if msg.to in settings["pname"]: md+="╠➣NAMELOCK ON✔\n"
+                                 else: md+="╠➣NAMELOCK:OFF✖\n"
+                                 Galank.sendText(to,md + "╰══════╬╬═══════╯\n●TΣΔM SLΔCҜβΩT●")
 #=================+
                         elif text.lower() == 'setmypict':
                             switch["changePicture"] = True
-                            prank.sendText(to, "Send to pictures")
-                        elif text.lower() == 'setbotpict1':
+                            Galank.sendText(to, "Send to pictures")
+                        elif text.lower() == 'setpict1':
                             switch["cp1"] = True
-                            pb1.sendText(to, "Send asisten 1 pictures")
-                        elif text.lower() == 'setbotpict2':
+                            Galank1.sendText(to, "Send asisten 1 pictures")
+                        elif text.lower() == 'setpict2':
                             switch["cp2"] = True
-                            pb2.sendText(to, "Send asisten 2 pictures")
+                            Galank2.sendText(to, "Send asisten 2 pictures")
                         elif text.lower() == 'setpictgrup':
                             if msg.toType == 2:
                                 if to not in settings["changeGroupPicture"]:
                                     settings["changeGroupPicture"].append(to)
-                                prank.sendText(to, "Send group pictures")
-                        elif text.lower() == 'respon':
-                            s1 = pb1.getProfile()
-                            s2 = pb2.getProfile()
-                            pb1.sendText(msg.to, s1.displayName + " Already..")
-                            pb2.sendText(msg.to, s2.displayName + " Already..")
+                                Galank.sendText(to, "Send group pictures")
+                        elif text.lower() == 'responame':
+                            s1 = Galank1.getProfile()
+                            s2 = Galank2.getProfile()
+                            Galank1.sendText(msg.to, s1.displayName + " Already..")
+                            Galank2.sendText(msg.to, s2.displayName + " Already..")
 #---------------------------------------------------
                         elif msg.text in ['cancel']:
                             if msg.toType == 2:
-                                group = prank.getGroup(msg.to)
+                                group = Galank.getGroup(msg.to)
                                 gMembMids = [contact.mid for contact in group.invitee]
                                 for _mid in gMembMids:
-                                    prank.cancelGroupInvitation(msg.to,[_mid]) 
+                                    Galank.cancelGroupInvitation(msg.to,[_mid]) 
                 elif msg.contentType == 1:
                     if switch["changePicture"] == True:
                         path = prank.downloadObjectMsg(msg_id)
                         switch["changePicture"] = False
-                        prank.updateProfilePicture(path)
-                        prank.sendText(to, "PP diganti")
+                        Galank.updateProfilePicture(path)
+                        Galank.sendText(to, "PP diganti")
                     if msg.toType == 2:
                         if to in settings["changeGroupPicture"]:
                             path = prank.downloadObjectMsg(msg_id)
                             settings["changeGroupPicture"].remove(to)
-                            prank.updateGroupPicture(to, path)
-                            prank.sendText(to, "Berhasil mengubah foto group")
+                            Galank.updateGroupPicture(to, path)
+                            Galank.sendText(to, "Berhasil mengubah foto group")
                     if switch["cp1"] == True:
-                        path = prank.downloadObjectMsg(msg_id)
+                        path = Galank.downloadObjectMsg(msg_id)
                         switch["cp1"] = False
-                        pb1.updateProfilePicture(path)
-                        pb1.sendText(to, "PP bot 1 diganti")
+                        Galank1.updateProfilePicture(path)
+                        Galank1.sendText(to, "PP bot 1 diganti")
                     if switch["cp2"] == True:
-                        path = prank.downloadObjectMsg(msg_id)
+                        path = Galank.downloadObjectMsg(msg_id)
                         switch["cp2"] = False
-                        pb2.updateProfilePicture(path)
-                        pb2.sendText(to, "PP bot 2 diganti")
+                        Galank2.updateProfilePicture(path)
+                        Galank2.sendText(to, "PP bot 2 diganti")
         if op.type == 19:
             if mid in op.param3:
                 print("Asist 1 backup selfbot")
                 if op.param2 in Bots:
-                    X = pb1.getGroup(op.param1)
+                    X = Galank1.getGroup(op.param1)
                     X.preventedJoinByTicket = False
-                    pb1.updateGroup(X)
-                    Ti = pb1.reissueGroupTicket(op.param1)
-                    prank.acceptGroupInvitationByTicket(op.param1,Ti)
-                    pb1.acceptGroupInvitationByTicket(op.param1,Ti)
-                    pb2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    X = prank.getGroup(op.param1)
+                    Galank1.updateGroup(X)
+                    Ti = Galank1.reissueGroupTicket(op.param1)
+                    Galank.acceptGroupInvitationByTicket(op.param1,Ti)
+                    Galank1.acceptGroupInvitationByTicket(op.param1,Ti)
+                    Galank2.acceptGroupInvitationByTicket(op.param1,Ti)
+                    X = Galank.getGroup(op.param1)
                     X.preventedJoinByTicket = True
                     prank.updateGroup(X)
-                    Ti = prank.reissueGroupTicket(op.param1)
+                    Ti = Galank.reissueGroupTicket(op.param1)
                 else:
                     settings["blacklist"][op.param2] = True
                     print("Kicker has been blacklist")
                     try:
-                        X = pb1.getGroup(op.param1)
+                        X = Galank1.getGroup(op.param1)
                         X.preventedJoinByTicket = False
                         pb1.updateGroup(X)
-                        Ti = pb1.reissueGroupTicket(op.param1)
-                        prank.acceptGroupInvitationByTicket(op.param1,Ti)
-                        pb1.acceptGroupInvitationByTicket(op.param1,Ti)
-                        pb2.acceptGroupInvitationByTicket(op.param1,Ti)
-                        X = prank.getGroup(op.param1)
+                        Ti = Galank1.reissueGroupTicket(op.param1)
+                        Galank.acceptGroupInvitationByTicket(op.param1,Ti)
+                        Galank1.acceptGroupInvitationByTicket(op.param1,Ti)
+                        Galank2.acceptGroupInvitationByTicket(op.param1,Ti)
+                        X = Galank.getGroup(op.param1)
                         X.preventedJoinByTicket = True
-                        prank.updateGroup(X)
-                        Ti = prank.reissueGroupTicket(op.param1)
-                        pb1.kickoutFromGroup(op.param1,[op.param2])
+                        Galank.updateGroup(X)
+                        Ti = Galank.reissueGroupTicket(op.param1)
+                        Galank1.kickoutFromGroup(op.param1,[op.param2])
                         print("Bots1 Joined openqr")
                     except:
                         pass
             if Amid in op.param3:
                 print("Asist 1 backup selfbot")
                 if op.param2 in Bots:
-                    X = pb2.getGroup(op.param1)
+                    X = Galank2.getGroup(op.param1)
                     X.preventedJoinByTicket = False
-                    pb2.updateGroup(X)
-                    Ti = pb2.reissueGroupTicket(op.param1)
-                    prank.acceptGroupInvitationByTicket(op.param1,Ti)
-                    pb1.acceptGroupInvitationByTicket(op.param1,Ti)
-                    pb2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    X = prank.getGroup(op.param1)
+                    Galank2.updateGroup(X)
+                    Ti = Galank2.reissueGroupTicket(op.param1)
+                    Galank.acceptGroupInvitationByTicket(op.param1,Ti)
+                    Galank1.acceptGroupInvitationByTicket(op.param1,Ti)
+                    Galank2.acceptGroupInvitationByTicket(op.param1,Ti)
+                    X = Galank.getGroup(op.param1)
                     X.preventedJoinByTicket = True
-                    prank.updateGroup(X)
-                    Ti = prank.reissueGroupTicket(op.param1)
+                    Galank.updateGroup(X)
+                    Ti = Galank.reissueGroupTicket(op.param1)
                 else:
                     settings["blacklist"][op.param2] = True
                     print("Kicker has been blacklist")
                     try:
-                        X = pb2.getGroup(op.param1)
+                        X = Galank2.getGroup(op.param1)
                         X.preventedJoinByTicket = False
-                        pb2.updateGroup(X)
-                        Ti = pb2.reissueGroupTicket(op.param1)
-                        prank.acceptGroupInvitationByTicket(op.param1,Ti)
-                        pb1.acceptGroupInvitationByTicket(op.param1,Ti)
-                        pb2.acceptGroupInvitationByTicket(op.param1,Ti)
-                        X = prank.getGroup(op.param1)
+                        Galank2.updateGroup(X)
+                        Ti = Galank2.reissueGroupTicket(op.param1)
+                        Galank.acceptGroupInvitationByTicket(op.param1,Ti)
+                        Galank1.acceptGroupInvitationByTicket(op.param1,Ti)
+                        Galank2.acceptGroupInvitationByTicket(op.param1,Ti)
+                        X = Galank.getGroup(op.param1)
                         X.preventedJoinByTicket = True
-                        prank.updateGroup(X)
-                        Ti = prank.reissueGroupTicket(op.param1)
-                        pb2.kickoutFromGroup(op.param1,[op.param2])
+                        Galank.updateGroup(X)
+                        Ti = Galank.reissueGroupTicket(op.param1)
+                        Galank2.kickoutFromGroup(op.param1,[op.param2])
                         print("Bots1 Joined openqr")
                     except:
                         pass
             if Bmid in op.param3:
                 print("Asist 1 backup selfbot")
                 if op.param2 in Bots:
-                    X = prank.getGroup(op.param1)
+                    X = Galank.getGroup(op.param1)
                     X.preventedJoinByTicket = False
                     prank.updateGroup(X)
-                    Ti = prank.reissueGroupTicket(op.param1)
-                    prank.acceptGroupInvitationByTicket(op.param1,Ti)
-                    pb1.acceptGroupInvitationByTicket(op.param1,Ti)
-                    pb2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    X = pb1.getGroup(op.param1)
+                    Ti = Galank.reissueGroupTicket(op.param1)
+                    Galank.acceptGroupInvitationByTicket(op.param1,Ti)
+                    Galank1.acceptGroupInvitationByTicket(op.param1,Ti)
+                    Galank2.acceptGroupInvitationByTicket(op.param1,Ti)
+                    X = Galank1.getGroup(op.param1)
                     X.preventedJoinByTicket = True
-                    pb1.updateGroup(X)
-                    Ti = pb1.reissueGroupTicket(op.param1)
+                    Galank1.updateGroup(X)
+                    Ti = Galank1.reissueGroupTicket(op.param1)
                 else:
                     settings["blacklist"][op.param2] = True
                     print("Kicker has been blacklist")
                     try:
-                        X = prank.getGroup(op.param1)
+                        X = Galank.getGroup(op.param1)
                         X.preventedJoinByTicket = False
-                        prank.updateGroup(X)
-                        Ti = prank.reissueGroupTicket(op.param1)
-                        prank.acceptGroupInvitationByTicket(op.param1,Ti)
-                        pb1.acceptGroupInvitationByTicket(op.param1,Ti)
-                        pb2.acceptGroupInvitationByTicket(op.param1,Ti)
-                        X = pb1.getGroup(op.param1)
+                        Galank.updateGroup(X)
+                        Ti = Galank.reissueGroupTicket(op.param1)
+                        Galank.acceptGroupInvitationByTicket(op.param1,Ti)
+                        Galank1.acceptGroupInvitationByTicket(op.param1,Ti)
+                        Galank2.acceptGroupInvitationByTicket(op.param1,Ti)
+                        X = Galank1.getGroup(op.param1)
                         X.preventedJoinByTicket = True
-                        pb1.updateGroup(X)
-                        Ti = pb1.reissueGroupTicket(op.param1)
-                        prank.kickoutFromGroup(op.param1,[op.param2])
+                        Galank1.updateGroup(X)
+                        Ti = Galank1.reissueGroupTicket(op.param1)
+                        Galank.kickoutFromGroup(op.param1,[op.param2])
                         print("Bots1 Joined openqr")
                     except:
                         pass
@@ -936,19 +936,19 @@ def bot(op):
              else:
                  prank.kickoutFromGroup(op.param1,[op.param2])
                  settings["blacklist"][op.param2] = True
-                 prank.reissueGroupTicket(op.param1)
-                 X = prank.getGroup(op.param1)
+                 Galank.reissueGroupTicket(op.param1)
+                 X = Galank.getGroup(op.param1)
                  X.preventedJoinByTicket = True
-                 prank.updateGroup(X)
+                 Galank.updateGroup(X)
                  settings["blacklist"][op.param2] = True
             else:
              if op.param2 in Bots:
                 pass
              else:
-                 prank.reissueGroupTicket(op.param1)
-                 X = prank.getGroup(op.param1)
+                 Galank.reissueGroupTicket(op.param1)
+                 X = Galank.getGroup(op.param1)
                  X.preventedJoinByTicket = True
-                 prank.updateGroup(X)
+                 Galank.updateGroup(X)
         if op.type == 32:
           if op.param1 in settings["PROTECT"]:
             if op.param2 in Bots:
@@ -957,7 +957,7 @@ def bot(op):
                 Inviter = op.param3.replace("",',')
                 InviterX = Inviter.split(",")
                 contact = prank.getContact(op.param2)
-                prank.kickoutFromGroup(op.param1,[op.param2])
+                Galank.kickoutFromGroup(op.param1,[op.param2])
                 settings["blacklist"][op.param2] = True
         if op.type == 13:
          if op.param1 in settings["cancelprotect"]:
@@ -968,8 +968,8 @@ def bot(op):
                 Inviter = op.param3.replace("",',')
                 InviterX = Inviter.split(",")
                 for _mid in InviterX:
-                    prank.cancelGroupInvitation(op.param1,[_mid])
-                prank.kickoutFromGroup(op.param1,[op.param2])
+                    Galank.cancelGroupInvitation(op.param1,[_mid])
+                Galank.kickoutFromGroup(op.param1,[op.param2])
                 settings["blacklist"][op.param2] = True
           else:
             if op.param2 in Bots:
@@ -978,29 +978,29 @@ def bot(op):
                 Inviter = op.param3.replace("",',')
                 InviterX = Inviter.split(",")
                 for _mid in InviterX:
-                    prank.cancelGroupInvitation(op.param1,[_mid])
-                prank.cancelGroupInvitation(op.param1,InviterX)
+                    Galank.cancelGroupInvitation(op.param1,[_mid])
+                Galank.cancelGroupInvitation(op.param1,InviterX)
         if op.type == 17:
             if mid in op.param3:
-                    group = prank.getGroup(msg.to)
+                    group = Galank.getGroup(msg.to)
                     gMembMids = [contact.mid for contact in group.members]
                     matched_list = []
                     for tag in settings["blacklist"]:
                         matched_list+=filter(lambda str: str == tag, gMembMids)
                     if matched_list == []:
-                        prank.sendText(to,"nothing blacklist")
+                        Galank.sendText(to,"nothing blacklist")
                         return
                     for jj in matched_list:
-                        prank.kickoutFromGroup(to,[jj])
-                        pb1.kickoutFromGroup(to,[jj])
-                        pb2.kickoutFromGroup(to,[jj])
-                    prank.sendText(to,"done")
+                        Galank.kickoutFromGroup(to,[jj])
+                        Galank1.kickoutFromGroup(to,[jj])
+                        Galank2.kickoutFromGroup(to,[jj])
+                    Galank.sendText(to,"done")
         if op.type == 17:
             if op.param2 in settings["blacklist"]:
             	if op.param2 not in Bots:
-                   prank.kickoutFromGroup(op.param1,[op.param2])
-                   prank.sendContact(op.param1,[op.param2])
-                   prank.sendText(op.param1,"di blacklist goblok\etaterngkanlah...")
+                   Galank.kickoutFromGroup(op.param1,[op.param2])
+                   Galank.sendContact(op.param1,[op.param2])
+                   Galank.sendText(op.param1,"di blacklist Babik...")
             else:
                 pass
         if op.type == 26:
