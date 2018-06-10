@@ -149,7 +149,7 @@ def mentionMembers(to, mid):
 def backupData():
     try:
         backup = settings
-        f = codecs.open('prankbots.json','w','utf-8')
+        f = codecs.open('slackbot.json','w','utf-8')
         json.dump(backup, f, sort_keys=True, indent=4, ensure_ascii=False)
         return True
     except Exception as error:
