@@ -1,6 +1,5 @@
 # LINE ME
-# [ADD_LINE]
-(http://line.me/ti/p/~fuck.you__)
+# [ADD_LINE](http://line.me/ti/p/~fuck.you__)
 
 # SQUARE ●TΣΔM SLΔCҜβΩT●
 # https://line.me/ti/g2/LMAIQCF1K0
