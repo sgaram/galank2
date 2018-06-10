@@ -3,7 +3,7 @@ from .channel import LineChannel
 from .call import LineCall
 from .poll import LinePoll
 from .server import LineServer
-from PB.ttypes import OpType
+from GALANK.ttypes import OpType
 
 __copyright__       = 'Copyright 2017 by Fadhiil Rachman'
 __version__         = '1.8.4'
