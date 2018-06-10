@@ -9,7 +9,7 @@ import time, random, asyncio, timeit, sys, json, codecs, threading, glob, re, st
 botStart = time.time()
 
 Galank = LineClient(authToken='TOKENMU SAYANG')
-prank.log("Auth Token : " + str(prank.authToken))
+Galank.log("Auth Token : " + str(Galank.authToken))
 channel = LineChannel(Galank)
 Galank.log("Channel Access Token : " + str(channel.channelAccessToken))
 #======================
@@ -365,7 +365,7 @@ def bot(op):
                                             textx += str(b) + " - "
                                         else:
                                             try:
-                                                no = "[ {} ]".format(str(pb1.getGroup(msg.to).name))
+                                                no = "[ {} ]".format(str(Galank1.getGroup(msg.to).name))
 
                                             except:
                                                no = "[ Success ]"
@@ -469,7 +469,7 @@ def bot(op):
                                     for target in targets:
                                       if target not in Bots:
                                         try:
-                                            klist=[prank,pb1,pb2]
+                                            klist=[Galank,Galank1,Galank2]
                                             kicker=random.choice(klist)
                                             kicker.kickoutFromGroup(msg.to,[target])
                                             print (msg.to,[g.mid])
@@ -736,7 +736,7 @@ def bot(op):
                             else:
                                 Galank.sendText(to,"GROUP NAME HAS BEN BLOCKED")
                                 settings['pname'][msg.to] = True
-                                settings['pro_name'][msg.to] = prank.getGroup(msg.to).name
+                                settings['pro_name'][msg.to] = Galank.getGroup(msg.to).name
                         elif text.lower() == 'namelock off':
                             if msg.to in settings['pname']:
                                 Galank.sendText(to,"GROUP NAME ALREADY UNBLOCKED")
@@ -808,13 +808,13 @@ def bot(op):
                                     Galank.cancelGroupInvitation(msg.to,[_mid]) 
                 elif msg.contentType == 1:
                     if switch["changePicture"] == True:
-                        path = prank.downloadObjectMsg(msg_id)
+                        path = Galank.downloadObjectMsg(msg_id)
                         switch["changePicture"] = False
                         Galank.updateProfilePicture(path)
                         Galank.sendText(to, "PP diganti")
                     if msg.toType == 2:
                         if to in settings["changeGroupPicture"]:
-                            path = prank.downloadObjectMsg(msg_id)
+                            path = Galank.downloadObjectMsg(msg_id)
                             settings["changeGroupPicture"].remove(to)
                             Galank.updateGroupPicture(to, path)
                             Galank.sendText(to, "Berhasil mengubah foto group")
@@ -841,7 +841,7 @@ def bot(op):
                     Galank2.acceptGroupInvitationByTicket(op.param1,Ti)
                     X = Galank.getGroup(op.param1)
                     X.preventedJoinByTicket = True
-                    prank.updateGroup(X)
+                    Galank.updateGroup(X)
                     Ti = Galank.reissueGroupTicket(op.param1)
                 else:
                     settings["blacklist"][op.param2] = True
@@ -849,7 +849,7 @@ def bot(op):
                     try:
                         X = Galank1.getGroup(op.param1)
                         X.preventedJoinByTicket = False
-                        pb1.updateGroup(X)
+                        Galank1.updateGroup(X)
                         Ti = Galank1.reissueGroupTicket(op.param1)
                         Galank.acceptGroupInvitationByTicket(op.param1,Ti)
                         Galank1.acceptGroupInvitationByTicket(op.param1,Ti)
@@ -900,7 +900,7 @@ def bot(op):
                 if op.param2 in Bots:
                     X = Galank.getGroup(op.param1)
                     X.preventedJoinByTicket = False
-                    prank.updateGroup(X)
+                    Galank.updateGroup(X)
                     Ti = Galank.reissueGroupTicket(op.param1)
                     Galank.acceptGroupInvitationByTicket(op.param1,Ti)
                     Galank1.acceptGroupInvitationByTicket(op.param1,Ti)
@@ -934,7 +934,7 @@ def bot(op):
              if op.param2 not in Bots:
                 pass
              else:
-                 prank.kickoutFromGroup(op.param1,[op.param2])
+                 Galank.kickoutFromGroup(op.param1,[op.param2])
                  settings["blacklist"][op.param2] = True
                  Galank.reissueGroupTicket(op.param1)
                  X = Galank.getGroup(op.param1)
@@ -956,7 +956,7 @@ def bot(op):
             else:
                 Inviter = op.param3.replace("",',')
                 InviterX = Inviter.split(",")
-                contact = prank.getContact(op.param2)
+                contact = Galank.getContact(op.param2)
                 Galank.kickoutFromGroup(op.param1,[op.param2])
                 settings["blacklist"][op.param2] = True
         if op.type == 13:
