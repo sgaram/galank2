@@ -8,6 +8,10 @@ from humanfriendly import format_timespan, format_size, format_number, format_le
 import time, random, asyncio, timeit, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, urllib, urllib.parse, ast, pafy, youtube_dl
 botStart = time.time()
 
+# MID ADMIN JANGAN DI HAPUS
+# HARGAI YANG BIKIN
+# TAMBAHIN AJA MID KALIAN
+
 Galank = LineClient(authToken='TOKENMU SAYANG')
 Galank.log("Auth Token : " + str(Galank.authToken))
 channel = LineChannel(Galank)
@@ -382,9 +386,9 @@ def bot(op):
 			Galank.sendText(to, Balas)
                         elif text.lower() == 'add':		
                             Galank.sendText(to,"╠══════════════")
-                            Galank.sendContact(to, 'u5818cb4404411c2e2e6e6937d172cca8')
-                            Galank.sendContact(to, 'udfaf52176415b46cb445ae2757ec85f3')
-                            Galank.sendContact(to, 'u17a086ccff618e754588a1108335867f')
+                            Galank.sendContact(to, 'u78643d09e42a36836a17cc918963a8b7')# GALANK
+                            Galank.sendContact(to, 'u290d3072b043ff4796a9a91f145931e0')# INNE
+                            Galank.sendContact(to, 'uf8d981e0bc9184560956ced35c4372be')# RIANDO
                             Galank.sendText(to,"╠══════════════")
                         elif text.lower() == 'creator':		
                             Galank.sendText(to,"╠══════════════")
