@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from PB.ttypes import IdentityProvider, LoginResultType
+from GALANK.ttypes import IdentityProvider, LoginResultType
 from .server import LineServer
 from .session import LineSession
 from .callback import LineCallback
