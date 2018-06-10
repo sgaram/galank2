@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from .client import LineClient
-from PB.ttypes import MediaType
+from GALANK.ttypes import MediaType
 from types import *
 
 def loggedIn(func):
