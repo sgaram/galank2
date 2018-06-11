@@ -11,6 +11,11 @@ botStart = time.time()
 # MID ADMIN JANGAN DI HAPUS
 # HARGAI YANG BIKIN
 # TAMBAHIN AJA MID KALIAN
+# THANKS YA BUAT KALIAN
+# KALAU BUKAN SUPPORT DARI KALIAN
+# AKU GAK MUNGKIN KEK GINI/PASTI UDAH VAKUM BOT
+# YANG MAU KEPO,IN[ADD AJA ID LINE DI BAWAH]
+# [ADD ME] fuck.you__
 
 Galank = LineClient(authToken='TOKENMU SAYANG')
 Galank.log("Auth Token : " + str(Galank.authToken))
@@ -128,7 +133,7 @@ def _images_get_all_items(page):
 def mentionMembers(to, mid):
     try:
         arrData = ""
-        textx = "╭═══╬╬═══╮[Mention {} User]╰═══╬╬═══╯\n➠".format(str(len(mid)))
+        textx = "[Mention {} User]\n".format(str(len(mid)))
         arr = []
         no = 1
         for i in mid:
@@ -161,7 +166,7 @@ def backupData():
         return False
 def help():
     helpMessage = "╭══════╬╬═══════╮\n●TΣΔM SLΔCҜβΩT●\n╰══════╬╬═══════╯\n╭══════╬╬═══════╮" + "\n" + \
-                  "╠➣ NAME IN BOT " + clientProfile.displayName + " ╦" + "\n" + \
+                  "╠➣ NAME IN BOT " + clientProfile.displayName + " " + "\n" + \
                   "╠➣ Help" + "\n" + \
                   "╠➣ Settings" + "\n" + \
                   "╠➣ Me" + "\n" + \
@@ -208,7 +213,7 @@ def help():
                   "╠➣ Protectlink on|off" + "\n" + \
                   "╠➣ Protectinvite on|off" + "\n" + \
                   "╠➣ Protect on|off" + "\n" + \
-                  "╠➣ Namelock:on|off" + "\n" + \
+                  "╠➣ Namelock on|off" + "\n" + \
                   "╰══════╬╬═══════╯\nCREATOR:\nline.me/ti/p/~fuck.you__"
     return helpMessage
 groupParam = ""
