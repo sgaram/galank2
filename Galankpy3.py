@@ -387,8 +387,6 @@ def bot(op):
                                     Galank1.sendText(msg.to,str(e))
                         elif text.lower() == 'me':
                             Galank.sendContact(to, sender)
-			Balas = "Me apaan dah,\nMe ayam\nMe sapi\nMemek
-			Galank.sendText(to, Balas)
                         elif text.lower() == 'add':		
                             Galank.sendText(to,"╠══════════════")
                             Galank.sendContact(to, 'u78643d09e42a36836a17cc918963a8b7')# GALANK
