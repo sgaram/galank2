@@ -114,7 +114,7 @@ while True:
                             client.sendChatChecked(receiver, msg_id)
                             contact = client.getContact(sender)
                             if text.lower() == 'me':
-                                client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
+                                client.sendMessage(to, None, contentMetadata={'mid': sender}, contentType=13)
                                 client.tag(to, sender)
                                 client.sendText(to, 'Jangan sombong mhank')
                             elif ("Gn " in msg.text):
@@ -196,33 +196,33 @@ while True:
                                     query = msg.text.replace("yt:", "")
                                     query = query.replace(" ", "+")
                                     x = client.youtube(query)
-                                    client.sendText(receiver, x)
+                                    client.sendText(to, x)
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif "image:" in msg.text.lower():
                                 try:
                                     query = msg.text.replace("image:", "")
                                     images = client.image_search(query)
-                                    client.sendImageWithURL(receiver, images)
+                                    client.sendImageWithURL(to, images)
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif 'say:' in msg.text.lower():
                                 try:
                                     isi = msg.text.lower().replace('say:','')
                                     tts = gTTS(text=isi, lang='id', slow=False)
                                     tts.save('temp.mp3')
-                                    client.sendAudio(receiver, 'temp.mp3')
+                                    client.sendAudio(to, 'temp.mp3')
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif 'apakah ' in msg.text.lower():
                                 try:
                                     txt = ['iya','tidak','bisa jadi']
                                     isi = random.choice(txt)
                                     tts = gTTS(text=isi, lang='id', slow=False)
                                     tts.save('temp2.mp3')
-                                    client.sendAudio(receiver, 'temp2.mp3')
+                                    client.sendAudio(to, 'temp2.mp3')
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif "Sytr:" in msg.text:
                                 try:
                                     isi = msg.text.split(":")
@@ -231,117 +231,117 @@ while True:
                                     A = hasil.text
                                     tts = gTTS(text=A, lang=isi[1], slow=False)
                                     tts.save('temp3.mp3')
-                                    client.sendAudio(receiver, 'temp3.mp3')
+                                    client.sendAudio(to, 'temp3.mp3')
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif "tr:" in msg.text:
                                 try:
                                     isi = msg.text.split(":")
                                     translator = Translator()
                                     hasil = translator.translate(isi[2], dest=isi[1])
                                     A = hasil.text                               
-                                    client.sendText(receiver, str(A))
+                                    client.sendText(to, str(A))
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif text.lower() == 'speed':
                                 start = time.time()
-                                client.sendText(receiver, "Progress...!")
+                                client.sendText(to, "Progress...!")
                                 elapsed_time = time.time() - start
-                                client.sendText(receiver, "%sdetik" % (elapsed_time))
+                                client.sendText(to, "%sdetik" % (elapsed_time))
                             elif 'stealpic' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
                                     a = client.getContact(u).pictureStatus
                                     if "videoProfile='{" in str(client.getContact(u)):
-                                        client.sendVideoWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a+'/vp.small')
+                                        client.sendVideoWithURL(to, 'http://dl.profile.line.naver.jp/'+a+'/vp.small')
                                     else:
-                                        client.sendImageWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a)
+                                        client.sendImageWithURL(to, 'http://dl.profile.line.naver.jp/'+a)
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif 'stealcover' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
                                     a = channel.getProfileCoverURL(mid=u)
-                                    client.sendImageWithURL(receiver, a)
+                                    client.sendImageWithURL(to, a)
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif text.lower() == 'mention':
-                                group = client.getGroup(receiver)
+                                group = client.getGroup(to)
                                 nama = [contact.mid for contact in group.members]
                                 nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
                                 if jml <= 100:
-                                    client.mention(receiver, nama)
+                                    client.mention(to, nama)
                                 if jml > 100 and jml < 200:
                                     for i in range(0, 100):
                                         nm1 += [nama[i]]
-                                    client.mention(receiver, nm1)
+                                    client.mention(to, nm1)
                                     for j in range(101, len(nama)):
                                         nm2 += [nama[j]]
-                                    client.mention(receiver, nm2)
+                                    client.mention(to, nm2)
                                 if jml > 200 and jml < 300:
                                     for i in range(0, 100):
                                         nm1 += [nama[i]]
-                                    client.mention(receiver, nm1)
+                                    client.mention(to, nm1)
                                     for j in range(101, 200):
                                         nm2 += [nama[j]]
-                                    client.mention(receiver, nm2)
+                                    client.mention(to, nm2)
                                     for k in range(201, len(nama)):
                                         nm3 += [nama[k]]
-                                    client.mention(receiver, nm3)
+                                    client.mention(to, nm3)
                                 if jml > 300 and jml < 400:
                                     for i in range(0, 100):
                                         nm1 += [nama[i]]
-                                    client.mention(receiver, nm1)
+                                    client.mention(to, nm1)
                                     for j in range(101, 200):
                                         nm2 += [nama[j]]
-                                    client.mention(receiver, nm2)
+                                    client.mention(to, nm2)
                                     for k in range(201, len(nama)):
                                         nm3 += [nama[k]]
-                                    client.mention(receiver, nm3)
+                                    client.mention(to, nm3)
                                     for l in range(301, len(nama)):
                                         nm4 += [nama[l]]
-                                    client.mention(receiver, nm4)
+                                    client.mention(to, nm4)
                                 if jml > 400 and jml < 501:
                                     for i in range(0, 100):
                                         nm1 += [nama[i]]
-                                    client.mention(receiver, nm1)
+                                    client.mention(to, nm1)
                                     for j in range(101, 200):
                                         nm2 += [nama[j]]
-                                    client.mention(receiver, nm2)
+                                    client.mention(to, nm2)
                                     for k in range(201, len(nama)):
                                         nm3 += [nama[k]]
-                                    client.mention(receiver, nm3)
+                                    client.mention(to, nm3)
                                     for l in range(301, len(nama)):
                                         nm4 += [nama[l]]
-                                    client.mention(receiver, nm4)
+                                    client.mention(to, nm4)
                                     for m in range(401, len(nama)):
                                         nm5 += [nama[m]]
-                                    client.mention(receiver, nm5)             
-                                client.sendText(receiver, "Members :"+str(jml))
+                                    client.mention(to, nm5)             
+                                client.sendText(to, "Members :"+str(jml))
                             elif text.lower() == 'ceksider':
                                 try:
-                                    del cctv['point'][receiver]
-                                    del cctv['sidermem'][receiver]
-                                    del cctv['cyduk'][receiver]
+                                    del cctv['point'][to]
+                                    del cctv['sidermem'][to]
+                                    del cctv['cyduk'][to]
                                 except:
                                     pass
-                                cctv['point'][receiver] = msg.id
-                                cctv['sidermem'][receiver] = ""
-                                cctv['cyduk'][receiver]=True
+                                cctv['point'][to] = msg.id
+                                cctv['sidermem'][to] = ""
+                                cctv['cyduk'][to]=True
                             elif text.lower() == 'offread':
                                 if msg.to in cctv['point']:
-                                    cctv['cyduk'][receiver]=False
-                                    client.sendText(receiver, cctv['sidermem'][msg.to])
+                                    cctv['cyduk'][to]=False
+                                    client.sendText(to, cctv['sidermem'][msg.to])
                                 else:
-                                    client.sendText(receiver, "Heh belom di Set")
+                                    client.sendText(to, "Heh belom di Set")
                             elif text.lower() == 'mode:self':
                                 mode = 'self'
-                                client.sendText(receiver, 'Mode Public Off')
+                                client.sendText(to, 'Mode Public Off')
                             elif text.lower() == 'mode:public':
                                 mode = 'public'
-                                client.sendText(receiver, 'Mode Public ON')
+                                client.sendText(to, 'Mode Public ON')
                             elif text.lower() == 'restart':
                                 restart_program()
                 except Exception as e:
@@ -358,8 +358,8 @@ while True:
                         if msg.toType == 2:
                             contact = client.getContact(sender)
                             if text.lower() == 'me':
-                                client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
-                                client.tag(receiver, sender)
+                                client.sendMessage(to, None, contentMetadata={'mid': sender}, contentType=13)
+                                client.tag(to, sender)
                             elif 'gc ' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
@@ -369,57 +369,57 @@ while True:
                                     cstatus = client.getContact(u).statusMessage
                                     cpic = client.getContact(u).picturePath
                                     #print(str(a))
-                                    client.sendText(receiver, 'Nama : '+cname+'\nMID : '+cmid+'\nStatus Msg : '+cstatus+'\nPicture : http://dl.profile.line.naver.jp'+cpic)
-                                    client.sendMessage(receiver, None, contentMetadata={'mid': cmid}, contentType=13)
+                                    client.sendText(to, 'Nama : '+cname+'\nMID : '+cmid+'\nStatus Msg : '+cstatus+'\nPicture : http://dl.profile.line.naver.jp'+cpic)
+                                    client.sendMessage(to, None, contentMetadata={'mid': cmid}, contentType=13)
                                     if "videoProfile='{" in str(client.getContact(u)):
-                                        client.sendVideoWithURL(receiver, 'http://dl.profile.line.naver.jp'+cpic+'/vp.small')
+                                        client.sendVideoWithURL(to, 'http://dl.profile.line.naver.jp'+cpic+'/vp.small')
                                     else:
-                                        client.sendImageWithURL(receiver, 'http://dl.profile.line.naver.jp'+cpic)
+                                        client.sendImageWithURL(to, 'http://dl.profile.line.naver.jp'+cpic)
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))                            
+                                    client.sendText(to, str(e))                            
                             elif 'sticker:' in msg.text.lower():
                                 try:
                                     query = msg.text.replace("sticker:", "")
                                     query = int(query)
                                     if type(query) == int:
-                                        client.sendImageWithURL(receiver, 'https://stickershop.line-scdn.net/stickershop/v1/product/'+str(query)+'/ANDROID/main.png')
-                                        client.sendText(receiver, 'https://line.me/S/sticker/'+str(query))
+                                        client.sendImageWithURL(to, 'https://stickershop.line-scdn.net/stickershop/v1/product/'+str(query)+'/ANDROID/main.png')
+                                        client.sendText(to, 'https://line.me/S/sticker/'+str(query))
                                     else:
-                                        client.sendText(receiver, 'gunakan key sticker angka bukan huruf')
+                                        client.sendText(to, 'gunakan key sticker angka bukan huruf')
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif "youtube:" in msg.text.lower():
                                 try:
                                     query = msg.text.replace("yt:", "")
                                     query = query.replace(" ", "+")
                                     x = client.youtube(query)
-                                    client.sendText(receiver, x)
+                                    client.sendText(to, x)
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif "image:" in msg.text.lower():
                                 try:
                                     query = msg.text.replace("image:", "")
                                     images = client.image_search(query)
-                                    client.sendImageWithURL(receiver, images)
+                                    client.sendImageWithURL(to, images)
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif 'say:' in msg.text.lower():
                                 try:
                                     isi = msg.text.lower().replace('say:','')
                                     tts = gTTS(text=isi, lang='id', slow=False)
                                     tts.save('temp.mp3')
-                                    client.sendAudio(receiver, 'temp.mp3')
+                                    client.sendAudio(to, 'temp.mp3')
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif 'apakah ' in msg.text.lower():
                                 try:
                                     txt = ['iya','tidak','bisa jadi']
                                     isi = random.choice(txt)
                                     tts = gTTS(text=isi, lang='id', slow=False)
                                     tts.save('temp2.mp3')
-                                    client.sendAudio(receiver, 'temp2.mp3')
+                                    client.sendAudio(to, 'temp2.mp3')
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif "Sytr:" in msg.text:
                                 try:
                                     isi = msg.text.split(":")
@@ -428,42 +428,42 @@ while True:
                                     A = hasil.text
                                     tts = gTTS(text=A, lang=isi[1], slow=False)
                                     tts.save('temp3.mp3')
-                                    client.sendAudio(receiver, 'temp3.mp3')
+                                    client.sendAudio(to, 'temp3.mp3')
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif "Tr:" in msg.text:
                                 try:
                                     isi = msg.text.split(":")
                                     translator = Translator()
                                     hasil = translator.translate(isi[2], dest=isi[1])
                                     A = hasil.text                               
-                                    client.sendText(receiver, str(A))
+                                    client.sendText(to, str(A))
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif text.lower() == 'speed':
                                 start = time.time()
-                                client.sendText(receiver, "TestSpeed")
+                                client.sendText(to, "TestSpeed")
                                 elapsed_time = time.time() - start
-                                client.sendText(receiver, "%sdetik" % (elapsed_time))
+                                client.sendText(to, "%sdetik" % (elapsed_time))
                             elif 'stealpic' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
                                     a = client.getContact(u).pictureStatus
                                     if "videoProfile='{" in str(client.getContact(u)):
-                                        client.sendVideoWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a+'/vp.small')
+                                        client.sendVideoWithURL(to, 'http://dl.profile.line.naver.jp/'+a+'/vp.small')
                                     else:
-                                        client.sendImageWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a)
+                                        client.sendImageWithURL(to, 'http://dl.profile.line.naver.jp/'+a)
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif 'stealcover' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
                                     a = channel.getProfileCoverURL(mid=u)
-                                    client.sendImageWithURL(receiver, a)
+                                    client.sendImageWithURL(to, a)
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                 except Exception as e:
                     client.log("[SEND_MESSAGE] ERROR : " + str(e))
                     
