@@ -19,7 +19,7 @@ import time, random, asyncio, timeit, sys, json, codecs, threading, glob, re, st
 # LOGIN EMAIL DAN PASWORD LINE
 #client = LineClient(id='email', passwd='pass')
 #LOGIN TOKEN
-client = LineClient(authToken='TokenMu SAYANG')
+client = LineClient(authToken='Eu0IyUSz5UZmVW3BmjP4.f25/kC26016m+rq78vfQTa.4YQ9ANbN/q/PupvRBSoATFDWrLHIEeRc17LLrDVtt2c=')
 client.log("Auth Token : " + str(client.authToken))
 channel = LineChannel(client)
 client.log("Channel Access Token : " + str(channel.channelAccessToken))
