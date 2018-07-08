@@ -1,5 +1,7 @@
 # LINE ME
-# [ADD_LINE](http://line.me/ti/p/~fuck.you__)
+(http://line.me/ti/p/%40ryp6149l)
+YANG MAU NANYA² ADD OWNER/ADMIN
+LINK ADA DI ATAS
 
 # SQUARE ●TΣΔM SLΔCҜβΩT●
 # https://line.me/ti/g2/LMAIQCF1K0
@@ -8,8 +10,6 @@
 
 
 # NEW UPDATE PYTHON3
-# THRIFT 0.11.0
-# 1SB & 3ASSIST PROTECTION
 # CARA INSTALL FOR VPS
 
 # apt-get install python3-pip
