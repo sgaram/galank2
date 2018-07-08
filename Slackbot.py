@@ -115,8 +115,8 @@ while True:
                             contact = client.getContact(sender)
                             if text.lower() == 'me':
                                 client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
-                                client.tag(receiver, sender)
-                                client.sendText(receiver, 'Jangan sombong mhank')
+                                client.tag(to, sender)
+                                client.sendText(to, 'Jangan sombong mhank')
                             elif ("Gn " in msg.text):
                                  X = client.getGroup(msg.to)
                                  X.name = msg.text.replace("Gn ","")
@@ -128,7 +128,7 @@ while True:
                                     bb = a.contents
                                     cc = bb.link
                                     textt = bb.text
-                                    client.sendText(receiver, 'Link: ' + str(cc) + '\nText: ' + str(textt) + '\nMaker: ' + str(aa))
+                                    client.sendText(to, 'Link: ' + str(cc) + '\nText: ' + str(textt) + '\nMaker: ' + str(aa))
                             elif text.lower() == 'unsend me':
                                 client.unsendMessage(msg_id)
                             elif text.lower() == 'getsq':
@@ -142,7 +142,7 @@ while True:
                                 txt2 = ''
                                 for i in range(len(squares)):
                                     txt2 += str(i+1)+'. '+str(squares[i].invitationURL)+'\n'
-                                client.sendText(receiver, txt2)
+                                client.sendText(to, txt2)
                             elif 'lc ' in text.lower():
                                 try:
                                     typel = [1001,1002,1003,1004,1005,1006]
@@ -157,9 +157,9 @@ while True:
                                         result = test['post']['postInfo']['postId']
                                         channel.like(str(sender), str(result), likeType=random.choice(typel))
                                         channel.comment(str(sender), str(result), 'Auto Like by nrik')
-                                    client.sendText(receiver, 'Done Like+Comment '+str(len(st))+' Post From' + str(s))
+                                    client.sendText(to, 'Done Like+Comment '+str(len(st))+' Post From' + str(s))
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif 'gc ' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
@@ -169,27 +169,28 @@ while True:
                                     cstatus = client.getContact(u).statusMessage
                                     cpic = client.getContact(u).picturePath
                                     #print(str(a))
-                                    client.sendText(receiver, 'Nama : '+cname+'\nMID : '+cmid+'\nStatus Msg : '+cstatus+'\nPicture : http://dl.profile.line.naver.jp'+cpic)
-                                    client.sendMessage(receiver, None, contentMetadata={'mid': cmid}, contentType=13)
+                                    client.sendText(to, 'Nama : '+cname+'\nMID : '+cmid+'\nStatus Msg : '+cstatus+'\nPicture : http://dl.profile.line.naver.jp'+cpic)
+                                    client.sendMessage(to, None, contentMetadata={'mid': cmid}, contentType=13)
                                     if "videoProfile='{" in str(client.getContact(u)):
-                                        client.sendVideoWithURL(receiver, 'http://dl.profile.line.naver.jp'+cpic+'/vp.small')
+                                        client.sendVideoWithURL(to, 'http://dl.profile.line.naver.jp'+cpic+'/vp.small')
                                     else:
-                                        client.sendImageWithURL(receiver, 'http://dl.profile.line.naver.jp'+cpic)
+                                        client.sendImageWithURL(to, 'http://dl.profile.line.naver.jp'+cpic)
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif 'sticker:' in msg.text.lower():
                                 try:
                                     query = msg.text.replace("sticker:", "")
                                     query = int(query)
                                     if type(query) == int:
-                                        client.sendImageWithURL(receiver, 'https://stickershop.line-scdn.net/stickershop/v1/product/'+str(query)+'/ANDROID/main.png')
-                                        client.sendText(receiver, 'https://line.me/S/sticker/'+str(query))
+                                        client.sendImageWithURL(to, 'https://stickershop.line-scdn.net/stickershop/v1/product/'+str(query)+'/ANDROID/main.png')
+                                        client.sendText(to, 'https://line.me/S/sticker/'+str(query))
                                     else:
-                                        client.sendText(receiver, 'gunakan key sticker angka bukan huruf')
+                                        client.sendText(to, 'gunakan key sticker angka bukan huruf')
                                 except Exception as e:
-                                    client.sendText(receiver, str(e))
+                                    client.sendText(to, str(e))
                             elif msg.text in ["Key","Help","Command","Cmd"]:
                                 client.sendText(msg.to,helpMessage)
+                                client.sendText(msg.to,"『Dilarang Typo Tanpa Izin Dari Owner: Galank』")
                             elif "youtube:" in msg.text.lower():
                                 try:
                                     query = msg.text.replace("yt:", "")
