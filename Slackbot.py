@@ -1,9 +1,11 @@
-# -*- coding: utf-8 -*-
-import linepy
-from linepy import *
-import json, time, random, tempfile, os, sys
-from gtts import gTTS
-from googletrans import Translator
+from SLACKBOT import *
+from GALANK.ttypes import *
+from datetime import datetime
+from time import sleep
+from bs4 import BeautifulSoup
+from multiprocessing import Pool, Process
+from humanfriendly import format_timespan, format_size, format_number, format_length
+import time, random, asyncio, timeit, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, urllib, urllib.parse, ast, pafy, youtube_dl
 
 # THANKS YA BUAT KALIAN
 # KALAU BUKAN SUPPORT DARI KALIAN
@@ -19,7 +21,6 @@ from googletrans import Translator
 #LOGIN TOKEN
 client = LineClient(authToken='TokenMu SAYANG')
 client.log("Auth Token : " + str(client.authToken))
-
 channel = LineChannel(client)
 client.log("Channel Access Token : " + str(channel.channelAccessToken))
 
