@@ -1,5 +1,4 @@
-# LINE ME
-(http://line.me/ti/p/%40ryp6149l)
+# ADD ME(http://line.me/ti/p/%40ryp6149l)
 # YANG MAU NANYA² ADD OWNER/ADMIN
 # LINK ADA DI ATAS
 
