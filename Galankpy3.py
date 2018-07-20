@@ -215,7 +215,7 @@ def help():
                   "╠➣ Protectinvite on|off" + "\n" + \
                   "╠➣ Protect on|off" + "\n" + \
                   "╠➣ Namelock on|off" + "\n" + \
-                  "╰══════╬╬═══════╯\nCREATOR:\nline.me/ti/p/~fuck.you__"
+                  "╰══════╬╬═══════╯\nCREATOR:\nline.me/ti/p/~@ryp6149l"
     return helpMessage
 groupParam = ""
 def SiriGetOut(targ):
