@@ -15,7 +15,8 @@ botStart = time.time()
 # KALAU BUKAN SUPPORT DARI KALIAN
 # AKU GAK MUNGKIN KEK GINI/PASTI UDAH VAKUM BOT
 # YANG MAU KEPO,IN[ADD AJA ID LINE DI BAWAH]
-# [ADD ME] fuck.you__
+# DAN MAU NANYA SEKITAR TENTANG BOT
+# [ADD ME]http://line.me/ti/p/%40ryp6149l
 
 Galank = LineClient(authToken='TOKENMU SAYANG')
 Galank.log("Auth Token : " + str(Galank.authToken))
