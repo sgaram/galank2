@@ -25,11 +25,11 @@ class LineServer(object):
         'LINE_MUSIC': '1381425814'
     }
 
-    USER_AGENT  = 'Line/8.7.0'
-    APP_TYPE    = ApplicationType.DESKTOPWIN
-    APP_NAME    = "DESKTOPWIN 8.7.0 NADYA-TJ x64"
+    USER_AGENT  = 'Line/8.10.2'
+    APP_TYPE    = ApplicationType._VALUES_TO_NAMES[304]
+    APP_NAME    = "8.10.2"
     PHONE_TYPE  = ApplicationType.IOS
-    PHONE_NAME  = 'IOS\t7.14.0\tiPhone OS\t10.12.0'
+    PHONE_NAME  = 'IOS\t8.10.2\tiPhone OS\t8.22.17'
     CARRIER     = '51089, 1-0'
     SYSTEM_NAME = 'SLACKBOT'
     IP_ADDR     = '8.8.8.8'
