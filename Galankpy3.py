@@ -9,41 +9,7 @@ import time, random, asyncio, timeit, sys, json, codecs, threading, glob, re, st
 botStart = time.time()
 
 
-Galank = LineClient(authToken='EyjadDVRJNL9qYv5cvIf.K9hUseF6j4f/WE5DLTHHBW.5mWai7j3FN8vQhHLflOJb1vQ3Zgzj/aZH4TXNW0/mCE=')
-Galank.log("Auth Token : " + str(Galank.authToken))
-channel = LineChannel(Galank)
-Galank.log("Channel Access Token : " + str(channel.channelAccessToken))
-#======================
-Galank1 = LineClient(authToken='Ey3rbaDTwQxeI7rQljI9.t2D+Q8GQs5QI1aUzyFPrAq.O6FsHkuNU5JVteVJoVwyvtz2oybFMQGEnBGfmRk3aHs=')
-Galank1.log("Auth Token : " + str(Galank1.authToken))
-#======================
-Galank2 = LineClient(authToken='EyJjK9S4EJl8860nWMv5.fj0S/qYKVWGRwpehA8QPbq.EZ8EjckLoNNhGWoBGXbyoM6rqG/JH4aP+MEKkpdPAsk=')
-Galank2.log("Auth Token : " + str(Galank2.authToken))
-#======================
-settingsOpen = codecs.open("slackbot.json","r","utf-8")
-poll = LinePoll(Galank)
-clientProfile = Galank.getProfile()
-clientSettings = Galank.getSettings()
-mid = Galank.profile.mid
-call = LineCall(Galank)
-Amid = Galank1.getProfile().mid
-Bmid = Galank2.getProfile().mid
-KAC = [Galank,Galank1,Galank2]
-Bots = [mid,Amid,Bmid]
-pnharfbot = []
-linkprotect = []
-cancelprotect = {}
-PROTECT = {}
-settings = json.load(settingsOpen)
-if settings["restartPoint"] != None:
-    Galank.sendText(settings["restartPoint"], "Bot kembali aktif")
-switch = {
-    'winvite':False,
-    'dinvite':False,
-    'wblacklist':False,
-    'dblacklist':False,
-    'wpeki':False,
-    'dpeki':False,
+Galank =ki':False,
     'cp1':False,
     'cp2':False,
     'changePicture':False
