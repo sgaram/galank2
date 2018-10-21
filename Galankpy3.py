@@ -8,25 +8,16 @@ from humanfriendly import format_timespan, format_size, format_number, format_le
 import time, random, asyncio, timeit, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, urllib, urllib.parse, ast, pafy, youtube_dl
 botStart = time.time()
 
-# MID ADMIN JANGAN DI HAPUS
-# HARGAI YANG BIKIN
-# TAMBAHIN AJA MID KALIAN
-# THANKS YA BUAT KALIAN
-# KALAU BUKAN SUPPORT DARI KALIAN
-# AKU GAK MUNGKIN KEK GINI/PASTI UDAH VAKUM BOT
-# YANG MAU KEPO,IN[ADD AJA ID LINE DI BAWAH]
-# DAN MAU NANYA SEKITAR TENTANG BOT
-# [ADD ME]http://line.me/ti/p/%40ryp6149l
 
-Galank = LineClient(authToken='TOKENMU SAYANG')
+Galank = LineClient(authToken='EyjadDVRJNL9qYv5cvIf.K9hUseF6j4f/WE5DLTHHBW.5mWai7j3FN8vQhHLflOJb1vQ3Zgzj/aZH4TXNW0/mCE=')
 Galank.log("Auth Token : " + str(Galank.authToken))
 channel = LineChannel(Galank)
 Galank.log("Channel Access Token : " + str(channel.channelAccessToken))
 #======================
-Galank1 = LineClient(authToken='TOKENMU SAYANG')
+Galank1 = LineClient(authToken='Ey3rbaDTwQxeI7rQljI9.t2D+Q8GQs5QI1aUzyFPrAq.O6FsHkuNU5JVteVJoVwyvtz2oybFMQGEnBGfmRk3aHs=')
 Galank1.log("Auth Token : " + str(Galank1.authToken))
 #======================
-Galank2 = LineClient(authToken='TOKENMU SAYANG')
+Galank2 = LineClient(authToken='EyJjK9S4EJl8860nWMv5.fj0S/qYKVWGRwpehA8QPbq.EZ8EjckLoNNhGWoBGXbyoM6rqG/JH4aP+MEKkpdPAsk=')
 Galank2.log("Auth Token : " + str(Galank2.authToken))
 #======================
 settingsOpen = codecs.open("slackbot.json","r","utf-8")
@@ -388,15 +379,9 @@ def bot(op):
                                     Galank1.sendText(msg.to,str(e))
                         elif text.lower() == 'me':
                             Galank.sendContact(to, sender)
-                        elif text.lower() == 'add':		
-                            Galank.sendText(to,"╠══════════════")
-                            Galank.sendContact(to, 'u78643d09e42a36836a17cc918963a8b7')# GALANK
-                            Galank.sendContact(to, 'u290d3072b043ff4796a9a91f145931e0')# INNE
-                            Galank.sendContact(to, 'uf8d981e0bc9184560956ced35c4372be')# RIANDO
-                            Galank.sendText(to,"╠══════════════")
                         elif text.lower() == 'creator':		
                             Galank.sendText(to,"╠══════════════")
-                            Galank.sendContact(to, 'u78643d09e42a36836a17cc918963a8b7')
+                            Galank.sendContact(to, 'u9f09cfcb17d037e2936b751bd9d40ead')
                             Galank.sendText(to,"╠══════════════")
                         elif 'kiss1 ' in text.lower():
                            ulti0 = msg.text.replace("kiss1 ","")
