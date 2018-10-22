@@ -25,13 +25,13 @@ class LineServer(object):
         'LINE_MUSIC': '1381425814'
     }
 
-    USER_AGENT  = 'Line/8.10.2'
-    APP_TYPE    = ApplicationType._VALUES_TO_NAMES[304]
-    APP_NAME    = "8.10.2"
+    USER_AGENT  = 'Line/5.8.0'
+    APP_TYPE    = ApplicationType._VALUES_TO_NAMES[96]
+    APP_NAME    = "5.8.0"
     PHONE_TYPE  = ApplicationType.IOS
-    PHONE_NAME  = 'IOS\t8.10.2\tiPhone OS\t8.22.17'
+    PHONE_NAME  = 'DESKTOPWIN\t5.8.0\t"+nama+"\t10.0.0'
     CARRIER     = '51089, 1-0'
-    SYSTEM_NAME = 'SLACKBOT'
+    SYSTEM_NAME = 'errorrr'
     IP_ADDR     = '8.8.8.8'
     EMAIL_REGEX = re.compile(r"[^@]+@[^@]+\.[^@]+")
 
