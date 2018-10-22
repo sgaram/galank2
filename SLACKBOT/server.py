@@ -26,12 +26,12 @@ class LineServer(object):
     }
 
     USER_AGENT  = 'Line/5.8.0'
-    APP_TYPE    = ApplicationType._VALUES_TO_NAMES[96]
-    APP_NAME    = "5.8.0"
+    APP_TYPE    = ApplicationType.DESKTOPWIN
+    APP_NAME    = "DESKTOPWIN 5.8.0 NADYA-TJ x64"
     PHONE_TYPE  = ApplicationType.IOS
-    PHONE_NAME  = 'DESKTOPWIN\t5.8.0\t"+nama+"\t10.0.0'
+    PHONE_NAME  = 'IOS\t5.8.0\tiPhone OS\t8.22.17'
     CARRIER     = '51089, 1-0'
-    SYSTEM_NAME = 'errorrr'
+    SYSTEM_NAME = 'SLACKBOT'
     IP_ADDR     = '8.8.8.8'
     EMAIL_REGEX = re.compile(r"[^@]+@[^@]+\.[^@]+")
 
